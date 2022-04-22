@@ -62,15 +62,36 @@ namespace GestoreEventi
         { return this.prenotazioni; }
 
 
+        //constructor con titolo, data, posti a disposizione, posti attuali =0
 
 
+        public Evento (string titolo, DateTime data, uint capienzaMassima)
+        {
+            try //exception per il TItolo
+            {
+                SetTitolo (titolo);
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine("Il titolo è NULL. Errore in " + e.ParamName); //get the name of parameter causing the exception
+            }
 
-        // metodo che inizializzi i posti a 0
+            try //exception per la data
+            {
+                SetData (data);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine ("La data è antecedente a quelle possibili. Errore " + e.ParamName);
+            }
+
+            //ho dimenticato un setter per la capienza max
 
 
+            //prenotazioni attuali = 0
+            this.prenotazioni = 0;
 
-
-
+        }
 
 
     }

@@ -1,6 +1,8 @@
 ﻿using GestoreEventi;
 
-bool provaInserimentoNome = false;
+/* voglio provare a mantenere un while=true che richieda gli inserimenti
+ * 
+  bool provaInserimentoNome = false;
 while (provaInserimentoNome == false)
 {
     try
@@ -16,3 +18,4 @@ while (provaInserimentoNome == false)
         provaInserimentoNome = true;
     }
 }
+*/
