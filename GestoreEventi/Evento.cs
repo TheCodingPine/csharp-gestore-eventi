@@ -115,19 +115,23 @@ namespace GestoreEventi
         //-------metodi public----------
 
         //Prenota
-        public void Prenota()
+        public void Prenota(uint numeroPrenotazioni)
         {
-            if(this.data < DateTime.Now)
+            if (this.data < DateTime.Now)
             {
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException("Data errata");
             }
             else if (this.capienzaMassima++ > this.capienzaMassima)
             {
                 throw new ArgumentOutOfRangeException("Capienza massima raggiunta");
             }
+            else if (numeroPrenotazioni.GetType() != typeof(uint))
+            {
+                throw new ArgumentException("Inserire un numero valido");
+            }
             else
             {
-                this.capienzaMassima++;
+                this.prenotazioni += numeroPrenotazioni;
             }
         }
 

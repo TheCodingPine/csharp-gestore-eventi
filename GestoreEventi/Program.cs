@@ -30,8 +30,10 @@ uint capienzaMassima = uint.Parse(Console.ReadLine());
 
 Evento Evento = new Evento(nome, data, capienzaMassima);
 
-
-
+Console.Write("Quanti posti vuoi prenotare? ");
+uint numeroPrenotazioni = uint.Parse(Console.ReadLine());
+Evento.Prenota(numeroPrenotazioni);
+Console.WriteLine("Di " + capienzaMassima + "posti ne hai stati prenotati " + numeroPrenotazioni);
 
 
 
