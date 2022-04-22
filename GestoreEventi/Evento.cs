@@ -53,9 +53,21 @@ namespace GestoreEventi
         }
         
 
-        //capienzaMax: solo lettura
+        //capienzaMax: solo lettura (con setter!)
         public uint GetCapienzaMassima()
         { return this.capienzaMassima; }
+
+        public void SetCapienzaMassima(uint capienzaMassima)
+        {
+            if (capienzaMassima.GetType() != typeof (uint))
+            {
+                throw new ArgumentException("capienzaMassima");
+            }
+            else
+            {
+                this.capienzaMassima = capienzaMassima;
+            }
+        }
 
         //prenotazioni: solo lettura;
         public uint GetPrenotazioni()
@@ -85,7 +97,14 @@ namespace GestoreEventi
                 Console.WriteLine ("La data è antecedente a quelle possibili. Errore " + e.ParamName);
             }
 
-            //ho dimenticato un setter per la capienza max
+            try //exception per la capienza
+            {
+                SetCapienzaMassima (capienzaMassima);
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine("Inserisci un valore corretto. Errore " + e.ParamName);
+            }
 
 
             //prenotazioni attuali = 0
