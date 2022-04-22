@@ -101,7 +101,7 @@ namespace GestoreEventi
             {
                 SetCapienzaMassima (capienzaMassima);
             }
-            catch (ArgumentNullException e)
+            catch (ArgumentException e)
             {
                 Console.WriteLine("Inserisci un valore corretto. Errore " + e.ParamName);
             }
@@ -112,6 +112,50 @@ namespace GestoreEventi
 
         }
 
+        //-------metodi public----------
 
+        //Prenota
+        public void Prenota()
+        {
+            if(this.data < DateTime.Now)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else if (this.capienzaMassima++ > this.capienzaMassima)
+            {
+                throw new ArgumentOutOfRangeException("Capienza massima raggiunta");
+            }
+            else
+            {
+                this.capienzaMassima++;
+            }
+        }
+
+
+        //Disdici
+        public void Disdici()
+        {
+            if (this.data < DateTime.Now)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else if (this.prenotazioni <= 0)
+            {
+                throw new ArgumentOutOfRangeException("Capienza massima raggiunta");
+            }
+            else
+            {
+                this.prenotazioni--;
+            }
+        }
+
+        //override ti TOString
+
+        public override string ToString()
+        {
+            string stampa = this.data.ToString("dd/MM/yyyy") + " - " + this.titolo;
+
+            return stampa;
+        }
     }
 }
