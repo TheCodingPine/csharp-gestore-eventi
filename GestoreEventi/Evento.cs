@@ -10,34 +10,62 @@ namespace GestoreEventi
     {
         private string titolo;
         private DateTime data;
-        private int capienzaMassima;
-        private int prenotazioni;
+        private uint capienzaMassima; //uint perchè > 0
+        private uint prenotazioni; //uint perchè > 0
 
 
 
 
-        //getter - setter
+        //----------- getter - setter --------------
 
         //titolo: lettura e scrittura
+        public string GetTitolo()
+        { return this.titolo; }
+
+        public void SetTitolo(string titolo)
+        {
+            if (titolo == null)
+            { 
+               throw new ArgumentNullException ("Il titolo è nullo");
+            } else 
+            {
+                this.titolo = titolo; 
+            }
+
+        }
+            
+
 
         //data: lettura e scrittura
+        public DateTime GetData()
+        { return this.data; }
 
-
+        public void SetData(DateTime data)
+        {
+            if (data < DateTime.Now)
+            {
+                throw new ArgumentOutOfRangeException ("data");
+            }
+            else
+            {
+                this.data = data;
+            }
+        }
+        
 
         //capienzaMax: solo lettura
-
-        public int GetCapienzaMassima()
-        { return capienzaMassima; }
+        public uint GetCapienzaMassima()
+        { return this.capienzaMassima; }
 
         //prenotazioni: solo lettura;
-
-        public int GetPrenotazioni()
-        { return prenotazioni; }
-
+        public uint GetPrenotazioni()
+        { return this.prenotazioni; }
 
 
 
 
+
+        // metodo che inizializzi i posti a 0
 
 
 
