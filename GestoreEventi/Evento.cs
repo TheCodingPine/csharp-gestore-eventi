@@ -131,13 +131,13 @@ namespace GestoreEventi
             }
             else
             {
-                this.prenotazioni += numeroPrenotazioni;
+                this.prenotazioni = this.prenotazioni + numeroPrenotazioni;
             }
         }
 
 
         //Disdici
-        public void Disdici()
+        public void Disdici(uint numeroDisdette)
         {
             if (this.data < DateTime.Now)
             {
@@ -145,11 +145,15 @@ namespace GestoreEventi
             }
             else if (this.prenotazioni <= 0)
             {
-                throw new ArgumentOutOfRangeException("Capienza massima raggiunta");
+                throw new ArgumentOutOfRangeException("Nessun posto prenotato");
+            }
+            else if (numeroDisdette.GetType() != typeof(uint))
+            {
+                throw new ArgumentException("Inserire un numero valido");
             }
             else
             {
-                this.prenotazioni--;
+                this.prenotazioni = this.prenotazioni - numeroDisdette;
             }
         }
 

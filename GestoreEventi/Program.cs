@@ -28,14 +28,17 @@ DateTime data = DateTime.Parse(Console.ReadLine());
 Console.Write("QUal'è il numero dei posti disponibili? ");
 uint capienzaMassima = uint.Parse(Console.ReadLine());
 
-Evento Evento = new Evento(nome, data, capienzaMassima);
+Evento Evento1 = new Evento (nome, data, capienzaMassima);
 
 Console.Write("Quanti posti vuoi prenotare? ");
 uint numeroPrenotazioni = uint.Parse(Console.ReadLine());
-Evento.Prenota(numeroPrenotazioni);
+Evento1.Prenota(numeroPrenotazioni);
 Console.WriteLine("Di " + capienzaMassima + "posti ne hai stati prenotati " + numeroPrenotazioni);
 
-
+Console.Write("Quanti posti prenotati vuoi disdire? ");
+uint numeroDisdette = uint.Parse(Console.ReadLine());
+Evento1.Prenota(numeroPrenotazioni);
+Console.WriteLine("Di " + capienzaMassima + "posti ne hai disdetti " + numeroDisdette + "e restano prenotati " + numeroPrenotazioni);
 
 
 
