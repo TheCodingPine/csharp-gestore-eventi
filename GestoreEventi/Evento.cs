@@ -149,7 +149,7 @@ namespace GestoreEventi
             }
         }
 
-        //override ti TOString
+        //override di TOString
 
         public override string ToString()
         {

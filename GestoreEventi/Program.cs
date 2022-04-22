@@ -19,3 +19,23 @@ while (provaInserimentoNome == false)
     }
 }
 */
+
+Console.WriteLine("Creazione nuovo evento");
+Console.Write("Inserire nome evento: ");
+string nome = Console.ReadLine();
+Console.Write("Inserire data evento: ");
+DateTime data = DateTime.Parse(Console.ReadLine());
+Console.Write("QUal'è il numero dei posti disponibili? ");
+uint capienzaMassima = uint.Parse(Console.ReadLine());
+
+Evento Evento = new Evento(nome, data, capienzaMassima);
+
+
+
+
+
+
+
+
+
+
